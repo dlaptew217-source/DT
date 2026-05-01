@@ -1,40 +1,76 @@
-// interactive_love_story.js
+document.addEventListener('DOMContentLoaded', () => {
+    const music = new Audio('path_to_your_music.mp3');
+    let isPlaying = false;
+    const confettiContainer = document.getElementById('confetti');
 
-// Event listener for the magic button
-const magicButton = document.getElementById('magicButton');
+    function playMusic() {
+        if (!isPlaying) {
+            music.play();
+            isPlaying = true;
+        } else {
+            music.pause();
+            isPlaying = false;
+        }
+    }
 
-magicButton.addEventListener('click', function() {
-    // Trigger animations
-    startMagicAnimation();
-});
+    function fadeIn(element) {
+        element.style.opacity = 0;
+        element.style.transition = 'opacity 1s';
+        element.style.opacity = 1;
+    }
 
-function startMagicAnimation() {
-    // Code for animations goes here
-    console.log('Magic animation started!');
-    // Add animation logic
-}
+    function createConfetti() {
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.position = 'absolute';
+            confetti.style.top = Math.random() * window.innerHeight + 'px';
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.opacity = Math.random();
+            confettiContainer.appendChild(confetti);
+        }
+    }
 
-// Event listeners for other interactions
-const loveStoryElements = document.querySelectorAll('.story-element');
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    };
 
-loveStoryElements.forEach(element => {
-    element.addEventListener('mouseover', () => {
-        // Code for hover effect
-        element.classList.add('hover-effect');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                fadeIn(entry.target);
+            }
+        });
+    }, options);
+
+    document.querySelectorAll('.animate').forEach(element => {
+        observer.observe(element);
     });
 
-    element.addEventListener('mouseout', () => {
-        // Code to remove hover effect
-        element.classList.remove('hover-effect');
+    document.getElementById('musicToggle').addEventListener('click', playMusic);
+
+    document.getElementById('scrollToTop').addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
+
+    // Story progression logic
+    let storyProgress = 0;
+    function advanceStory() {
+        storyProgress++;
+        // Logic for advancing the story
+        if (storyProgress > 5) {
+            alert('End of story!');
+            storyProgress = 0;
+        }
+    }
+
+    document.getElementById('nextStoryPoint').addEventListener('click', advanceStory);
+
+    // Confetti effect
+    document.getElementById('celebrate').addEventListener('click', createConfetti);
 });
-
-// Additional story logic and animations
-function addLoveStoryLogic() {
-    console.log('Love story logic added!');
-    // Implementation of the love story
-}
-
-addLoveStoryLogic();
-
-// Other functionalities as per the story script.
