@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Татьяне — от Дмитрия</title>
+  <meta name="description" content="Ultimate digital love-story landing для Татьяны от Дмитрия" />
+  <meta name="theme-color" content="#0b0a12" />
+  <meta property="og:title" content="Татьяне — от Дмитрия" />
+  <meta property="og:description" content="Digital love-story landing • 30.04.2026" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__logo">✦</div>
+      <div class="preloader__title">Татьяне — от Дмитрия</div>
+      <div class="preloader__line"><span></span></div>
+    </div>
+  </div>
+
+  <div class="noise"></div>
+  <div class="orb orb--a"></div>
+  <div class="orb orb--b"></div>
+  <div class="orb orb--c"></div>
+  <canvas id="petalsCanvas"></canvas>
+
+  <audio id="bgMusic" loop preload="auto">
+    <source src="reka.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="intro" id="intro">
+    <div class="intro__card glass">
+      <div class="intro__eyebrow">30.04.2026 • private digital evening</div>
+      <h1 class="intro__title">
+        <span class="gradient-text">Татьяна,</span><br />
+        у этой истории<br />
+        есть <span class="gradient-text">один адресат</span>
+      </h1>
+      <p class="intro__text">
+        Это не просто страница. Это атмосфера, память и чувство,
+        собранные для тебя Дмитрием.
+      </p>
+      <div class="intro__actions">
+        <button class="btn btn--primary" id="enterStory">Открыть историю ✨</button>
+        <button class="btn btn--ghost" id="toggleMusicIntro">Музыка: off</button>
+      </div>
+      <div class="intro__hint">;Лучше открыть со звуком</div>
+    </div>
+  </div>
+
+  <header class="header container" id="top">
+    <div class="header__bar glass">
+      <a href="#top" class="brand" aria-label="Наверх">
+        <span class="brand__mark">✦</span>
+        <span class="brand__text">Татьяне — от Дмитрия</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#story">История</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#final">Финал</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="icon-btn" id="toggleMusic" aria-label="Переключить музыку">▶️</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container reveal">
+      <div class="hero__card glass parallax" data-speed="0.04">
+        <div class="hero__content">
+          <div class="badge">digital love-story • curated for Tatiana</div>
+          <h2 class="hero__title">
+            Всё, что хотелось<br />
+            <span class="gradient-text">сказать красиво</span>
+          </h2>
+          <p class="hero__text">
+            О книге. О магии. О букете. О намёке. О совпадениях.
+            И о том самом чувстве, которое хотелось подарить ещё до сюрприза.
+          </p>
+          <div class="hero__meta">
+            <span>Для Татьяны</span>
+            <span>От Дмитрия</span>
+            <span>Под «Река»</span>
+          </div>
+          <div class="hero__actions">
+            <a href="#story" class="btn btn--primary">Начать</a>
+            <button class="btn btn--ghost" id="magicBtn">Алохомора 🪄</button>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="halo">
+            <div class="halo__inner">
+              <div class="halo__core" id="heroSymbol">💐</div>
+            </div>
+          </div>
+          <div class="float-card fc1 glass">ты — важный человек</div>
+          <div class="float-card fc2 glass">всё совпало не случайно</div>
+          <div class="float-card fc3 glass">букет с намёком</div>
+          <div class="float-card fc4 glass">маленькое волшебство</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="story">
+      <div class="section__head">
+        <div class="badge">story mode</div>
+        <h2 class="section__title">Прожить этот вечер заново</h2>
+        <p class="section__text">
+          Шаг за шагом. Как интерактивная история, собранная из деталей.
+        </p>
+      </div>
+
+      <div class="progress glass">
+        <div class="progress__bar" id="progressBar"></div>
+ </div>
+
+      <div class="timeline">
+        <article class="story-card glass story-card--visible">
+          <div class="story-card__kicker">I. Начало</div>
+          <h3>Когда всё уже было видно и без слов</h3>
+          <p>
+            Мне просто очень сильно захотелось сделать тебе что-то приятное.
+            Ты стала тем человеком, с которым хочется переписываться целыми днями,
+            делиться всем на свете и ощущать, будто мы знакомы очень давно.
+          </p>
+          <div class="story-card__actions">
+            <button class="btn btn--primary next-btn" data-next="2">Дальше</button>
+          </div>
+        </article>
+
+        <div class="story-grid">
+          <article class="story-card glass" id="step2">
+            <div class="story-card__kicker">II. Книга</div>
+            <h3>Маленький план появился ещё тогда</h3>
+            <p>
+              Когда я подарил тебе книгу, у меня уже был план:
+              чтобы после неё у тебя осталось ощущение лёгкого волшебства.
+            </p>
+            <div class="choice-grid">
+              <button class="choice answer" data-step="2">🪄 Алохомора</button>
+              <button class="choice">✨ Люмос</button>
+              <button class="choice">🌙 Магия</button>
+            </div>
+          </article>
+
+          <article class="story-card glass" id="step3">
+            <div class="story-card__kicker">III. Pinterest и букет</div>
+            <h3>И тут всё стало точнее</h3>
+            <p>
+              Потом я думал о букете. И тут ты выкладываешь фото букетов из Pinterest.
+              Я понял: нужно что-то живое, полевое и настоящее.
+            </p>
+            <div class="choice-grid">
+              <button class="choice">🌹 Классика</button>
+              <button class="choice answer" data-step="3">🌿 Полевое и живое</button>
+              <button class="choice">💎 Идеальное</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="story-grid">
+          <article class="story-card glass" id="step4">
+            <div class="story-card__kicker">IV. Детали</div>
+            <h3>Когда букет сначала появился в цифре</h3>
+            <p>
+              Я позвонил другу, мы всё настроили, подключили ИИ, взяли референсы
+              и собрали не просто букет, а красивую историю из кода, идей и внимания.
+            </p>
+            <div class="story-card__actions">
+              <button class="btn btn--ghost next-btn" data-next="5">Дальше</button>
+            </div>
+          </article>
+
+          <article class="story-card glass" id=&quot;step5">
+            <div class="story-card__kicker">V. Совпадение</div>
+            <h3>Когда вселенная будто подыграла</h3>
+            <p>
+              И почти в этот же момент у нас завязался разговор о букете.
+              Всё совпало так точно, будто сама вселенная решила помочь.
+            </p>
+            <div class="choice-grid">
+              <button class="choice">Случайность</button>
+              <button class="choice answer" data-step="5">Магическое совпадение</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="story-grid">
+          <article class="story-card glass" id="step6">
+            <div class="story-card__kicker">VI. Намёк</div>
+            <h3>Зацепка на самом видном месте</h3>
+            <p>
+              Мне хотелось оставить для тебя красивую зацепку.
+              Такую, чтобы сердце само поняло: «кажется, это мне».
+            </p>
+            <div class="story-card__actions">
+              <button class="btn btn--ghost next-btn" data-next="7">Кажется, это мне 💌</button>
+            </div>
+          </article>
+
+          <article class="story-card glass" id="step7">
+            <div class="story-card__kicker">VII. Атмосфера</div>
+            <h3>Главное было не только в подарке</h3>
+            <p>
+              Мне хотелось создать для тебя особенное ощущение:
+              лёгкое волнение, тепло и ожидание чего-то важного.
+            </p>
+            <div class="choice-grid">
+              <button class="choice answer" data-step="7">💖 Тепло и волнение</button>
+              <button class="choice">📦 Просто подарок</button>
+              <button class="choice">📝 Просто история</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="gallery">
+      <div class="section__head">
+        <div class="badge">memory gallery</div>
+        <h2 class="section__title">Визуальные фрагменты вечера</h2>
+        <p class="section__text">
+          Поставь свои фото в папку `img` и просто замени пути.
+        </p>
+      </div>
+
+      <div class="gallery">
+        <figure class="gallery__item glass tall">
+          <img src="img/photo-1.jpg" alt="Фото 1" />
+        </figure>
+        <figure class="gallery__item glass">
+          <img src="img/photo-2.jpg" alt="Фото 2" />
+        </figure>
+        <figure class="gallery__item glass">
+          <img src="img/photo-3.jpg" alt="Фото 3" />
+        </figure>
+        <figure class="gallery__item glass wide">
+          <img src="img/photo-4.jpg" alt=";Фото 4" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="quote container reveal">
+      <div class="quote__card glass">
+        <div class="badge">essence</div>
+        <h2>
+          Ты — <span class="gradient-text">тот самый важный человек</span>
+        </h2>
+        <p>
+          Человек, для которого хочется стараться, продумывать детали,
+          собирать красоту из слов, света, кода и чувств.
+        </p>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="final">
+      <div class="final glass">
+        <div class="badge">final reveal</div>
+        <h2 class="final__title">
+          <span class="gradient-text">Для Татьяны</span><br />
+          от Дмитрия
+        </h2>
+        <p class="final__text">
+          Этот сайт — память о вечере 30.04.2026.
+          О том, как хотелось сделать для тебя что-то действительно особенное.
+        </p>
+        <p class="final__text">
+          Если ты сейчас улыбаешься, значит, всё это было не зря.
+          Значит, маленькое волшебство случилось.
+        </p>
+
+        <div class="final__actions">
+          <button class="btn btn--primary" id="replayBtn">Пройти ещё раз</button>
+          <button class="btn btn--ghost" id="revealBtn">Открыть последнее послание</button>
+        </div>
+
+        <div class="secret glass" id="secretMessage">
+          <div class="secret__title">Личное</div>
+          <p>
+            Татьяна, ты правда стала для меня особенным человеком.
+            И мне очень хотелось, чтобы ты это почувствовала красиво.
+          </p>
+        </div>
+
+        <div class="signature">С теплом, Дмитрий ✦</div>
+      </div>
+    </section>
+  </main>
+
+  <button class="to-top glass" id="toTop" aria-label="Наверх">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
